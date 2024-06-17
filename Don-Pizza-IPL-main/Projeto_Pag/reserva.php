@@ -41,7 +41,7 @@ if (isset($_POST['utilizador'])) {
     if (empty($erro)) {
         $result = mysqli_query($conn, "INSERT INTO reservas (nome, statu, metodo, data_reserva, mesa, pessoas) 
         VALUES ('$utilizador', '$status', '$payment', '$reserva', '$table', '$people')");
-        var_dump("COCO");
+        var_dump("Deu Certo!");
     } else {
         echo 'Erro ao criar a reserva: ' . mysqli_error($conn);
         var_dump("Erro!");
