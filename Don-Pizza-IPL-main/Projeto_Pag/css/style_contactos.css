@@ -1,0 +1,87 @@
+div.interface h2 {
+    max-height: 700px;
+}
+
+
+h2.titulo {
+    color: black;
+    font-size: 60px;
+    text-align: center;
+}
+
+
+h2.titulo span {
+    color: rgb(218, 75, 75);
+}
+
+
+section.formulario {
+    padding: 80px 4%;
+}
+
+
+form {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+form input,
+form textarea {
+    max-width: 100%;
+    background-color: rgba(255, 255, 255, 0.958);
+    border: 0;
+    outline: 0;
+    padding: 25px 20px;
+    border-radius: 15px;
+    color: rgb(103, 45, 45);
+    font-size: 17px;
+}
+
+
+form textarea {
+    resize: none;
+    height: 150px;
+}
+
+
+form textarea::placeholder {
+    color: black;
+}
+
+
+form input::placeholder {
+    color: black;
+}
+
+
+form #btn-enviar {
+    margin-top: 20px;
+}
+
+
+form #btn-enviar input {
+    background-color: rgb(218, 75, 75);
+    font-weight: 700px;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 40px;
+}
+
+
+button :hover,
+form #btn-enviar input:hover {
+    box-shadow: 0px 0px 8px rgb(218, 75, 75);
+    transform: scale(1.05);
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}

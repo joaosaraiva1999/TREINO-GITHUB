@@ -1,0 +1,400 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "TrueNo", sans-serif;
+}
+
+:root {
+    --color-background-color-white-base: #ffffff;
+    --color-background-color-red-base: #ea0010;
+    --color-background-red-middle: #810009;
+    --color-background-blue-middle: #00a1ff;
+    --color-black-middle: #1a1a1a;
+    --color-black-strong: #0b0217;
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    transition: 0.65s ease;
+    z-index: 2;
+}
+
+.transition-header {
+    transition: top 0.5s ease;
+}
+
+header .navbar {
+    position: relative;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 2;
+}
+
+
+header .navbar #logo-img {
+    height: 60px;
+    width: 150px;
+    margin: 0.4rem 6rem 2rem 0.7rem;
+    transition: all 0.5s ease;
+}
+
+
+header .navbar .navlinks {
+    position: relative;
+    height: 100%;
+    left: 0;
+    line-height: 70px;
+    z-index: 2;
+}
+
+header .navbar .navlinks .links {
+    display: flex;
+    gap: 15px;
+}
+
+header .navbar .navlinks .links li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    color: var(--color-black-middle);
+    padding: 0 14px;
+    white-space: nowrap;
+    font-weight: 500;
+    transition-duration: 0.7s;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+header .navbar .navlinks .links li:hover {
+    transform: scale(1.1);
+    color: var(--color-background-color-red-base) !important;
+    text-decoration: underline var(--color-background-color-red-base);
+    text-underline-offset: 10px;
+}
+
+header .navbar .navlinks .links a {
+    text-decoration: none;
+}
+
+header .navbar .navlinks .button-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: none;
+    transition-duration: 0.7s;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0 14px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    background: none;
+}
+
+header .navbar .navlinks .button-link:hover {
+    transform: scale(1.1);
+    color: var(--color-background-color-red-base) !important;
+    text-decoration: underline var(--color-background-color-red-base);
+    text-underline-offset: 10px;
+}
+
+
+.navbar .bx-menu,
+.navlinks .sidebar-logo .logo-name,
+.navlinks .sidebar-logo .bx-x {
+    display: none;
+}
+
+
+
+/* Forms */
+
+.home {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.home::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-out;
+}
+
+.home.show::before {
+    opacity: 0.6;
+    pointer-events: auto;
+}
+
+.home.fixed {
+    position: fixed;
+}
+
+/* Form */
+
+.form_container {
+    position: absolute;
+    max-width: 320px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    z-index: 101;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-out;
+}
+
+.home.show .form_container {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.signup_form {
+    display: none;
+}
+
+.form_container.active .signup_form {
+    display: block;
+}
+
+.form_container.active .login_form {
+    display: none;
+}
+
+.form_close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: var(--color-black-strong);
+    font-size: 22px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.form_container h2 {
+    font-size: 22px;
+    color: var(--color-black-strong);
+    text-align: center;
+}
+
+.input_box {
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 40px;
+}
+
+.input_box input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 30px;
+    color: #333;
+    border-bottom: 1.5px solid #aaaaaa;
+}
+
+.input_box input:focus {
+    border-color: #FF7A00;
+}
+
+.input_box i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #707070;
+}
+
+.input_box i.email,
+.input_box i.password {
+    left: 0;
+}
+
+.input_box input:focus~i.email,
+.input_box input:focus~i.password {
+    color: #FF7A00;
+}
+
+.input_box i.pw_hide {
+    right: 0;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.input_box a{
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    visibility: hidden;
+}
+
+.input_box.error a{
+    color: var(--color-background-color-red-base);
+    bottom: -33px;
+    visibility: visible;
+}
+
+.input_box.error input{
+    border-color: var(--color-background-color-red-base);
+}
+
+.option_field {
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form_container a {
+    color: #FF7A00;
+    font-size: 12px;
+}
+
+.form_container a:hover {
+    text-decoration: underline;
+}
+
+.checkbox {
+    display: flex;
+    column-gap: 8px;
+    white-space: nowrap;
+}
+
+.checkbox input {
+    accent-color: #FF7A00;
+}
+
+.checkbox label {
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
+    color: #0b0217;
+}
+
+.form_container .button {
+    background: #FF7A00;
+    margin-top: 50px;
+    width: 100%;
+    color: white;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+
+.login_signup {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+@media (max-width: 1200px) {
+
+    header .navbar .navlinks {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        max-width: 310px;
+        width: 100%;
+        background-color: var(--color-background-red-middle);
+        padding: 20px;
+        line-height: 40px;
+        transition: all 0.7s ease;
+        z-index: 3;
+        border-right: 5px solid black;
+    }
+
+    header .navbar #logo-img {
+        height: 50px;
+        width: 125px;
+        margin: 0.4rem 6rem 2rem 0.7rem;
+    }
+
+    header .navbar {
+        justify-content: space-between;
+    }
+
+    header .navbar .navlinks .sidebar-logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+
+    .navbar .bx-menu,
+    .navlinks .sidebar-logo .logo-name,
+    .navlinks .sidebar-logo .bx-x {
+        display: block;
+        color: #000000;
+        font-size: 35px;
+        font-weight: 500;
+    }
+
+    header .navbar .bx-menu {
+        margin: 1rem;
+        transition: 0.6s ease;
+        color: #000000;
+    }
+
+    header .navbar .bx-menu:hover {
+        transform: scale(1.2);
+        color: var(--color-background-color-red-base) !important;
+        cursor: pointer;
+    }
+
+    header .sidebar-logo .bx-x {
+        transition: 0.6s ease;
+    }
+
+    header .sidebar-logo .bx-x:hover {
+        transform: scale(1.1);
+        color: var(--color-background-color-white-base);
+        cursor: pointer;
+    }
+
+    header .navbar .navlinks .links {
+        display: block;
+        margin-top: 20px;
+    }
+
+    header .navbar .navlinks .links li,
+    header .navbar .navlinks .button-link {
+        display: block;
+        border-bottom: none;
+    }
+
+    header .navbar .navlinks .links li:hover {
+        transform: scale(1.1);
+        color: var(--color-background-color-white-base) !important;
+        text-decoration: underline var(--color-background-color-white-base);
+        text-underline-offset: 10px;
+    }
+
+    header .navbar .navlinks .button-link:hover {
+        transform: scale(1.1);
+        color: var(--color-background-color-white-base) !important;
+        text-decoration: underline var(--color-background-color-white-base);
+        text-underline-offset: 10px;
+    }
+}

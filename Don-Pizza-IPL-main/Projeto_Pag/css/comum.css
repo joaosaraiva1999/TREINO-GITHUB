@@ -1,0 +1,152 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative; /* Adicionando posição relativa para que a notificação possa ser posicionada em relação a isso */
+    overflow-x: hidden;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;  
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: url(../img/Image-bd.jpg);
+}
+
+  .body2 {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative; /* Adicionando posição relativa para que a notificação possa ser posicionada em relação a isso */
+  }
+
+  /* Estilo da notificação */
+  .notification {
+    position: fixed; /* A notificação permanece fixa na tela */
+    bottom: 20px; /* Distância do fundo da página */
+    left: 50%; /* Posicionamento horizontal no centro */
+    transform: translateX(-50%); /* Centralizando horizontalmente */
+    background-color: #D14F4F; /* Cor de fundo vermelha */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: none; /* Por padrão, a notificação está oculta */
+  }
+
+  /* Estilo do distintivo (badge) */
+  .badge {
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+  }
+
+  .container {
+    width: 80%;
+    display: flex;
+    padding-bottom: 100px;
+    padding-top: 100px;
+  }
+
+  .div-esquerda {
+    width: 45%;
+    background-color: #D14F4F;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 20px 0px 0px 20px;
+  }
+
+  .div-direita {
+    width: 45%;
+    background-color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 0px 20px 20px 0px;
+  }
+
+  .form-input {
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #999; /* Cor do texto do placeholder */
+  }
+
+  .form-input::placeholder {
+    color: #999; /* Cor do placeholder */
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .rate {
+    float: left; /* Mover as estrelas para o lado direito */
+    height: 46px;
+    padding: 0 10px;
+  }
+
+  .rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+  }
+
+  .rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+  }
+
+  .rate:not(:checked) > label:before {
+    content: '★ ';
+  }
+
+  .rate > input:checked ~ label {
+    color: #ffc700;    
+  }
+
+  .rate:not(:checked) > label:hover,
+  .rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+  }
+
+  .rate > input:checked + label:hover,
+  .rate > input:checked + label:hover ~ label,
+  .rate > input:checked ~ label:hover,
+  .rate > input:checked ~ label:hover ~ label,
+  .rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+  }
