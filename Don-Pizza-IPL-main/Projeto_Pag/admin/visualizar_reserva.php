@@ -4,21 +4,21 @@ session_start();
 require_once "db_connection.php";
 
 // Verificar se o ID foi passado
-if (isset($_GET['id'])) {
-    $id = intval($_GET['id']);
+if (isset($_GET['reserva'])) {
+    $reservas = intval($_GET['reserva']);
 
     // Buscar o registro para visualização
-    $sql = "SELECT * FROM avaliacao WHERE avaliacao = ?";
+    $sql = "SELECT * FROM reservas WHERE reserva = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
+    $stmt->bind_param("i", $reservas);
     $stmt->execute();
     $result = $stmt->get_result();
-    $avaliacao = $result->fetch_assoc();
+    $reserva = $result->fetch_assoc();
     $stmt->close();
 
-    if (!$avaliacao) {
+    if (!$reserva) {
         $_SESSION['msg_erros'] = "Avaliação não encontrada.";
-        header("Location: listar_avaliacoes.php");
+        header("Location: listar_reservas.php");
         exit();
     }
 }
@@ -63,13 +63,14 @@ $conn->close();
             <main>
                 <div class="container">
                     <div class="content">
-                        <h2>Detalhes da Avaliação</h2>
-                        <p><strong>Nome:</strong> <?= htmlspecialchars($avaliacao["nome"]) ?></p>
-                        <p><strong>Apelido:</strong> <?= htmlspecialchars($avaliacao["estrelas"]) ?></p>
-                        <p><strong>Email:</strong> <?= htmlspecialchars($avaliacao["email"]) ?></p>
-                        <p><strong>Telefone:</strong> <?= htmlspecialchars($avaliacao["telefone"]) ?></p>
-                        <p><strong>Descrição:</strong> <?= htmlspecialchars($avaliacao["descricao"]) ?></p>
-                        <a href="listar_avaliacoes.php" class="btn btn-secondary">Voltar</a>
+                        <h2>Detalhes da Reserva</h2>
+                        <p><strong>Nome:</strong> <?= htmlspecialchars($reserva["nome"]) ?></p>
+                        <p><strong>Status:</strong> <?= htmlspecialchars($reserva["statu"]) ?></p>
+                        <p><strong>Data Reserva:</strong> <?= htmlspecialchars($reserva["data_reserva"]) ?></p>
+                        <p><strong>Metodo Pagamento:</strong> <?= htmlspecialchars($reserva["metodo"]) ?></p>
+                        <p><strong>Mesa:</strong> <?= htmlspecialchars($reserva["mesa"]) ?></p>
+                        <p><strong>Numero de Pessoas:</strong> <?= htmlspecialchars($reserva["pessoas"]) ?></p>
+                        <a href="listar_reservas.php" class="btn btn-secondary">Voltar</a>
                     </div>
                 </div>
             </main>

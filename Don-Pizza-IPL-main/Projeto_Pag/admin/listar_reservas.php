@@ -77,6 +77,10 @@ while ($user_data = mysqli_fetch_assoc($reservas)) {
     echo "<td>" . $user_data['pessoas'] . "</td>";
     ?>
                                 <td>
+                                    <a href="visualizar_reserva.php?reserva=<?= $user_data["reserva"] ?>"
+                                        class="btn btn-info btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
                                     <a href="editar_reserva.php?reserva=<?= $user_data["reserva"] ?>"
                                         class="btn btn-primary btn-sm">
                                         <i class="fas fa-edit"></i>
