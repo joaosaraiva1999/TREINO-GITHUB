@@ -4,7 +4,7 @@ define("DB_HOST", "localhost");
 define("DB_NAME", "bd_vp");
 define("DB_CHARSET", "utf8");
 define("DB_USER", "root");
-define("DB_PASSWORD", "Wimbledon_7");
+define("DB_PASSWORD", "");
 
 try {
     $pdo = new PDO(

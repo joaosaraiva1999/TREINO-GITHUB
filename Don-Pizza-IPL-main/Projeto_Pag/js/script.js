@@ -96,10 +96,7 @@ $(document).ready(function () {
         event.preventDefault();
         let isValid = true;
         let nome = $('#utilizador').val().trim();
-        let status = $('#status').val().trim();
-        let pagamento = $('#pagamento').val().trim();
         let dataReserva = $('#data_reserva').val().trim();
-        let mesa = $('#mesa').val().trim();
         let pessoas = $('#pessoas').val().trim();
 
         $('.invalid-feedback').text('');
@@ -110,28 +107,9 @@ $(document).ready(function () {
             $('#utilizador').next('.invalid-feedback').text('O nome de utilizador/Reserva deve ter pelo menos 3 Caracteres');
             isValid = false;
         }
-
-        if (status === '') {
-            $('#status').addClass('is-invalid');
-            $('#status').next('.invalid-feedback').text('Por favor, insira o seu status de Cliente');
-            isValid = false;
-        }
-
-        if (pagamento === '') {
-            $('#pagamento').addClass('is-invalid');
-            $('#pagamento').next('.invalid-feedback').text('Por favor, insira o método de pagamento');
-            isValid = false;
-        }
-
         if (dataReserva === '') {
             $('#data_reserva').addClass('is-invalid');
             $('#data_reserva').next('.invalid-feedback').text('Por favor, selecione uma data de reserva');
-            isValid = false;
-        }
-
-        if (mesa === '' || isNaN(mesa) || parseInt(mesa) < 1) {
-            $('#mesa').addClass('is-invalid');
-            $('#mesa').next('.invalid-feedback').text('Por favor, insira um número de mesa válido');
             isValid = false;
         }
 
@@ -142,14 +120,26 @@ $(document).ready(function () {
         }
 
         if (isValid) {
-
             $.ajax({
                 type: 'POST',
                 url: 'reserva.php',
                 data: $('#form_reserva').serialize(),
-                success: function () {
-                    $('#form_reserva')[0].reset();
-                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status === 'success') {
+                        $('#form_reserva')[0].reset();
+                        $('#modalreserva').find('.modal-body span').text(response.idreserva);
+                        $('#modalreserva').modal('show');
+                    } else if (response.status === 'error') {
+                        if (response.errors) {
+                            response.errors.forEach(function (error) {
+                                alert(error); // You can handle this more gracefully if you want
+                            });
+                        } else {
+                            alert(response.message); // Handle generic error
+                        }
+                    }
+                }
             });
         }
     });
