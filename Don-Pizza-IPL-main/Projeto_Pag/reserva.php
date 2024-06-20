@@ -64,7 +64,7 @@ if (isset($_POST['utilizador'])) {
             <div class="card_desc">
                 <h3 class='h3_card text-light'>Eventos</h3>
                 <h5 class="h5_card text-light">Faça aqui o seu Evento!</h5>
-                <a href="#" class='lermais'>Read More</a>
+                <a href="#" class='lermais' data-bs-toggle='modal' data-bs-target='#modalevento'>Read More</a>
             </div>
         </div>
         <div class="card_body">
@@ -74,7 +74,7 @@ if (isset($_POST['utilizador'])) {
             <div class="card_desc">
                 <h3 class='h3_card text-light'>Almoços</h3>
                 <h5 class="h5_card text-light">Faça o seu Almoço Aqui!</h5>
-                <a href="#" class='lermais'>Read More</a>
+                <a href="#" data-bs-toggle='modal' data-bs-target='#modalalmoco' class='lermais'>Read More</a>
             </div>
         </div>
         <div class="card_body">
@@ -84,7 +84,67 @@ if (isset($_POST['utilizador'])) {
             <div class="card_desc">
                 <h3 class='h3_card text-light'>Jantares</h3>
                 <h5 class="h5_card text-light">Faça o seu jantar aqui!</h5>
-                <a href="#" class='lermais'>Read More</a>
+                <a href="#" class='lermais' data-bs-stoggle='modal' data-bs-target='#modaljantar'>Read More</a>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id='modalevento' tabindex="-1" aria-labelledby="modaleventoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title">Reserva</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-warning">
+                    <p>A pizzaria fast food Don Pizza está a organizar eventos temáticos semanais, incluindo
+                        noites de música ao vivo e degustações de pizzas especiais. Os clientes podem
+                        aproveitar promoções exclusivas e participar em sorteios para ganhar prémios. Além
+                        disso, a pizzaria oferece atividades para crianças aos domingos.
+                    </p>
+                </div>
+                <div class="modal-footer bg-warning">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id='modalalmoco' tabindex="-1" aria-labelledby="modaleventoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title">Reserva</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-warning">
+                    <p>O restaurante fast food Don Pizza está a oferecer almoços especiais durante a semana, com uma
+                        variedade de pizzas frescas e deliciosas. Os clientes podem aproveitar promoções exclusivas e
+                        menus combinados a preços acessíveis. Além disso, o restaurante oferece opções rápidas e
+                        convenientes para quem tem pouco tempo na hora do almoço.
+                    </p>
+                </div>
+                <div class="modal-footer bg-warning">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id='modaljantar' tabindex="-1" aria-labelledby="modaleventoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title">Reserva</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-warning">
+                    <p>O restaurante fast food Don Pizza está a oferecer jantares especiais todas as noites, com uma
+                        seleção variada de pizzas saborosas e frescas. Os clientes podem desfrutar de promoções
+                        exclusivas e menus combinados a preços acessíveis. Além disso, o restaurante oferece um ambiente
+                        acolhedor e descontraído, perfeito para jantar em família ou com amigos.
+                    </p>
+                </div>
+                <div class="modal-footer bg-warning">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
@@ -127,16 +187,15 @@ if (isset($_POST['utilizador'])) {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body bg-warning">
-                        <p>A sua reserva foi feita com sucesso. O seu ID de reserva é: <span style='font-weight: bold;'></span></p>
+                            <p>A sua reserva foi feita com sucesso. O seu ID de reserva é: <span
+                                    style='font-weight: bold;'></span></p>
                         </div>
                         <div class="modal-footer bg-warning">
-                            <button type="button" class="btn btn-danger"
-                                data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 

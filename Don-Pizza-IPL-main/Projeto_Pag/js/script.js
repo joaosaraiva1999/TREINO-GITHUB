@@ -87,9 +87,7 @@ hiddenElements.forEach((el) => observer.observe(el));
 const form = document.getElementById('form_refresh')
 form.addEventListener('submit', e => {
     e.preventDefault()
-    console.log('Deu certo')
 })
-
 
 $(document).ready(function () {
     $('#form_reserva').on('submit', function (event) {
