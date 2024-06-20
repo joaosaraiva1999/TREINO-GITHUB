@@ -129,7 +129,7 @@ if (isset($_POST['utilizador'])) {
                         <div class="modal-body bg-warning">
                         <p>A sua reserva foi feita com sucesso. O seu ID de reserva é: <span style='font-weight: bold;'></span></p>
                         </div>
-                        <div class="modal-footer  bg-warning">
+                        <div class="modal-footer bg-warning">
                             <button type="button" class="btn btn-danger"
                                 data-bs-dismiss="modal">Close</button>
                         </div>
